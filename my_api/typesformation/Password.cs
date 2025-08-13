@@ -2,11 +2,13 @@ namespace MY_API.typesformation;
 
 public class Password
 {
-    private readonly string password;
+    private string _password = default!;
+
+    protected Password() { }
 
     public Password(string password)
     {
-        this.password = Validate(password);
+        _password = Validate(password);
     }
 
     public string Validate(string password)
@@ -17,5 +19,10 @@ public class Password
     public string HashPassword(string password)
     {
         return password;
+    }
+
+    public override string ToString()
+    {
+        return _password;
     }
 }
